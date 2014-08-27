@@ -11,8 +11,6 @@ switch ($_SERVER['SERVER_NAME']) {
         $db = new PDO('mysql:host=localhost;dbname=jhSkeleton', 'root', 'root');
         $url = 'http://localhost/jhSkeleton/public/';
         break;
-    case 'geogids.nl':
-        break;
     
     default :
         // production:
