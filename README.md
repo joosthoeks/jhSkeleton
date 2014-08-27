@@ -1,0 +1,4 @@
+jhSkeleton
+==========
+
+My app skeleton
