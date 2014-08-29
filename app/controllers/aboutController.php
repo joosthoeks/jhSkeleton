@@ -3,6 +3,7 @@ $pageTitle = 'About';
 $pageDescription = 'About page!';
 $pageKeywords = 'about, page';
 
+// add page to layout:
 $requireViewArr = array(
     'div/navigation',
     'page/'.$page,

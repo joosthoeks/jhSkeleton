@@ -37,6 +37,7 @@
         </div>
         
 <?php
+// get page views:
 foreach ($requireViewArr as $view) {
     require $appPath.'views/'.$view.'View.php';
 }
