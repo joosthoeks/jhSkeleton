@@ -6,7 +6,7 @@ switch ($_SERVER['SERVER_NAME']) {
         error_reporting(-1);
         ini_set('display_errors', '1');
         $local = TRUE;
-        $publicPath = $_SERVER['DOCUMENT_ROOT'].'/jhSkeleton/public/';
+        $publicPath = $_SERVER['DOCUMENT_ROOT'].'/jhSkeleton/jhSkeleton/public/';
         $appPath = $publicPath.'../app/';
         $db = new PDO('mysql:host=localhost;dbname=jhSkeleton', 'root', 'root');
         $url = 'http://localhost/jhSkeleton/public/';
