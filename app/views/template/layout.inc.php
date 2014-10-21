@@ -15,7 +15,7 @@
 <meta name="robots" content="all" />
 <meta name="revisit-after" content="7 days" />
 
-<link type="text/css" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="./css/bootstrap.min.css" />
 <link type="text/css" rel="stylesheet" href="./css/style.css" />
 <link type="image/x-icon" rel="shortcut icon" href="./img/favicon.ico" />
 
