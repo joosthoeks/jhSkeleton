@@ -28,7 +28,10 @@
 </head>
 
 <body>
-
+<?php
+require $appPath.'views/div/navigationView.php';
+?>
+    
     <div class="container">
         
         <div class="page-header">
