@@ -5,7 +5,7 @@ $pageKeywords = 'about, page';
 
 // add page to layout:
 $requireViewArr = array(
-    'div/navigation',
+//    'div/navigation',
     'page/'.$page,
 );
 
