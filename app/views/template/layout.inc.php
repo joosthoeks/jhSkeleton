@@ -57,6 +57,11 @@ foreach ($requireViewArr as $view) {
     
 <script type="text/javascript" src="./js/jquery.min.js"></script>
 <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+<!--
+<script type="text/javascript" src="./js/d3.v3.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/queue.v1.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/topojson.v1.min.js" charset="utf-8"></script>
+-->
 <script type="text/javascript" src="./js/functions.js"></script>
 <script type="text/javascript" src="./js/script.js"></script>
 
