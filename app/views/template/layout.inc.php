@@ -16,6 +16,12 @@
 <meta name="revisit-after" content="7 days" />
 
 <link type="text/css" rel="stylesheet" href="./css/bootstrap.min.css" />
+
+<?php // get page specific css:
+foreach ($requireCssArr as $css) : ?>
+<link type="text/css" rel="stylesheet" href="./<?php echo $css; ?>.css" />
+<?php endforeach; ?>
+
 <link type="text/css" rel="stylesheet" href="./css/style.css" />
 <link type="image/x-icon" rel="shortcut icon" href="./img/favicon.ico" />
 
