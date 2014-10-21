@@ -36,6 +36,10 @@ session_start();
 
 $siteName = 'jhSkeleton';
 $siteDescription = 'My app skeleton';
+$siteNavigation = array(
+    'home',
+    'about',
+);
 
 require $appPath.'functions.inc.php';
 
