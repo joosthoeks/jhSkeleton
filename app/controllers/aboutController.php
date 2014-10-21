@@ -5,7 +5,7 @@ $pageKeywords = 'about, page';
 
 // add page specific css:
 $requireCssArr = array(
-    'css/example',
+//    'css/example',
 );
 
 // add page to layout:
