@@ -36,7 +36,7 @@ session_start();
 
 $siteName = 'jhSkeleton';
 $siteDescription = 'My app skeleton';
-$siteNavigation = array(
+$siteNavigationArr = array(
     'home' => 'Home',
     'about' => 'About',
 );
