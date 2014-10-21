@@ -14,5 +14,10 @@ $requireViewArr = array(
     'page/'.$page,
 );
 
+// add page specific js:
+$requireJsArr = array(
+    'js/example',
+);
+
 // get layout:
 require $appPath.'views/template/layout.inc.php';
