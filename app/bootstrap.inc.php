@@ -9,7 +9,7 @@ switch ($_SERVER['SERVER_NAME']) {
         $publicPath = $_SERVER['DOCUMENT_ROOT'].'/jhSkeleton/jhSkeleton/public/';
         $appPath = $publicPath.'../app/';
         $db = new PDO('mysql:host=localhost;dbname=jhSkeleton', 'root', 'root');
-        $url = 'http://localhost/jhSkeleton/public/';
+        $url = 'http://local/jhSkeleton/jhSkeleton/public/';
         break;
     
     default :
