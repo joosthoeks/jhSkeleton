@@ -16,7 +16,7 @@ $requireViewArr = array(
 
 // add page specific js:
 $requireJsArr = array(
-    'js/example',
+//    'js/example',
 );
 
 // get layout:
