@@ -16,12 +16,10 @@
 <meta name="revisit-after" content="7 days" />
 
 <link type="text/css" rel="stylesheet" href="./css/bootstrap.min.css" />
-
 <?php // get page specific css:
 foreach ($requireCssArr as $css) : ?>
 <link type="text/css" rel="stylesheet" href="./<?php echo $css; ?>.css" />
 <?php endforeach; ?>
-
 <link type="text/css" rel="stylesheet" href="./css/style.css" />
 <link type="image/x-icon" rel="shortcut icon" href="./img/favicon.ico" />
 
@@ -69,6 +67,10 @@ foreach ($requireViewArr as $view) {
 <script type="text/javascript" src="./js/topojson.v1.min.js" charset="utf-8"></script>
 -->
 <script type="text/javascript" src="./js/functions.js"></script>
+<?php // get page specific js:
+foreach ($requireJsArr as $js) : ?>
+<script type="text/javascript" src="./<?php echo $js; ?>.js"></script>
+<?php endforeach; ?>
 <script type="text/javascript" src="./js/script.js"></script>
 
 </body>
