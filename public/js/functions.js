@@ -17,3 +17,40 @@ function jhAjax(url, container, type, key, value, callback)
         });
     }
 }
+function getWidthWindow()
+{
+    return window.innerWidth;
+}
+function getHeightWindow()
+{
+    return window.innerHeight;
+}
+function getWidthElement(id)
+{
+    return document.getElementById(id).clientWidth;
+}
+function getHeightElement(id)
+{
+    return document.getElementById(id).clientHeight;
+}
+function utf8_to_b64( str )
+{
+    return window.btoa(unescape(encodeURIComponent( str )));
+//    return window.btoa(encodeURIComponent( escape( str )));
+}
+function b64_to_utf8( str )
+{
+    return decodeURIComponent(escape(window.atob( str )));
+//    return unescape(decodeURIComponent(window.atob( str )));
+}
+function submitDownloadForm(id, title, data)
+{
+    var form = document.getElementById(id);
+    form['title'].value = title;
+    form['data'].value = data;
+    form.submit();
+}
+function scaleData(width)
+{
+    return width / 1000;
+}
