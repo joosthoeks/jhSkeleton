@@ -33,15 +33,15 @@ function getHeightElement(id)
 {
     return document.getElementById(id).clientHeight;
 }
-function utf8_to_b64( str )
+function utf8ToB64(str)
 {
-    return window.btoa(unescape(encodeURIComponent( str )));
-//    return window.btoa(encodeURIComponent( escape( str )));
+    return window.btoa(unescape(encodeURIComponent(str)));
+//    return window.btoa(encodeURIComponent(escape(str)));
 }
-function b64_to_utf8( str )
+function b64ToUtf8(str)
 {
-    return decodeURIComponent(escape(window.atob( str )));
-//    return unescape(decodeURIComponent(window.atob( str )));
+    return decodeURIComponent(escape(window.atob(str)));
+//    return unescape(decodeURIComponent(window.atob(str)));
 }
 function submitDownloadForm(id, title, data)
 {
