@@ -1,7 +1,7 @@
 <?php
 $pageTitle = 'About';
-$pageDescription = 'About page!';
-$pageKeywords = 'about, page';
+$pageDescription = '';
+$pageKeywords = '';
 
 // add page specific css:
 $requireCssArr = array(
