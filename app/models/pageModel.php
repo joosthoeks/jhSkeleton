@@ -18,6 +18,19 @@ class pageModel
         return $outputArr;
     }
     
+    public function getRow($id, $key = null)
+    {
+        $sql = "SELECT * FROM $this->table WHERE id = $id";
+        if (isset($key)) {
+            $keyEsc = $this->db->quote(trim(strip_tags($key)));
+            $sql = "SELECT * FROM $this->table WHERE key = $keyEsc";
+        }
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        $outputArr = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $outputArr;
+    }
+    
     public function add(array $fields, array $values)
     {
         $sql = "INSERT INTO $this->table (";
