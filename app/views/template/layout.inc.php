@@ -43,13 +43,16 @@ require $appPath.'views/div/navigationView.php';
             <p class="lead"><?php echo $siteDescription; ?></p>
         </div>
         
+    </div>
+    
 <?php
 // get page views:
 foreach ($requireViewArr as $view) {
     require $appPath.'views/'.$view.'View.php';
 }
 ?>
-        
+    
+    <div class="container">
         
         <div class="row">
             <div class="col-md-12">
