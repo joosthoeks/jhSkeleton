@@ -67,6 +67,15 @@ class pageModel
         $this->db->exec($sql);
     }
     
+    public function getColumns()
+    {
+        $sql = "SHOW COLUMNS FROM $this->table";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        $outputArr = $stmt->fetchAll();
+        return $outputArr;
+    }
+    
     public function createTable()
     {
         $sql = "".
