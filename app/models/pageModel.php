@@ -72,7 +72,7 @@ class pageModel
         $sql = "".
                 'SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";'.
                 'SET time_zone = "+00:00";'.
-                "CREATE TABLE IF NOT EXISTS `page` (".
+                "CREATE TABLE IF NOT EXISTS `$this->table` (".
                 "`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,".
                 "`key` varchar(255) COLLATE utf8_unicode_ci NOT NULL,".
                 "`title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,".
