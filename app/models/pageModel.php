@@ -9,9 +9,18 @@ class pageModel
         $this->db = $db;
     }
     
-    public function getList()
+    public function getList($pageNo = 0, $rowCount = 10,
+            $orderBy = '', $order = 'ASC',
+            $q = '', $qIn = '')
     {
-        $sql = "SELECT * FROM $this->table";
+        $sql = "SELECT * FROM $this->table ";
+        if (strlen($q) > 0 && strlen($qIn) > 0) {
+            $sql .= "WHERE $qIn LIKE '%$q%' ";
+        }
+        if (strlen($orderBy) > 0 && strlen($order) > 0) {
+            $sql .= "ORDER BY $orderBy $order ";
+        }
+        $sql .= "LIMIT $pageNo, $rowCount";
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
         $outputArr = $stmt->fetchAll(PDO::FETCH_ASSOC);
