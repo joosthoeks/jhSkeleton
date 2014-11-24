@@ -21,10 +21,8 @@ class pageModel
             $sql .= "ORDER BY $orderBy $order ";
         }
         $sql .= "LIMIT $pageNo, $rowCount";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute();
-        $outputArr = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $outputArr;
+        
+        return $this->output($sql);
     }
     
     public function getRow($id, $key = null)
@@ -34,10 +32,8 @@ class pageModel
             $keyEsc = $this->db->quote(trim(strip_tags($key)));
             $sql = "SELECT * FROM $this->table WHERE key = $keyEsc";
         }
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute();
-        $outputArr = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $outputArr;
+        
+        return $this->output($sql);
     }
     
     public function add(array $fields, array $values)
@@ -54,7 +50,9 @@ class pageModel
         }
         $sql .= "NOW(), NOW()".
                 ")";
+        
         $this->db->exec($sql);
+        
         return $this->db->lastInsertId();
     }
     
@@ -67,22 +65,22 @@ class pageModel
         }
         $sql .= "lastUpdated = NOW() ".
                 "WHERE id = $id";
+        
         $this->db->exec($sql);
     }
     
     public function delete($id)
     {
         $sql = "DELETE FROM $this->table WHERE id = $id";
+        
         $this->db->exec($sql);
     }
     
     public function getColumns()
     {
         $sql = "SHOW COLUMNS FROM $this->table";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute();
-        $outputArr = $stmt->fetchAll();
-        return $outputArr;
+        
+        return $this->output($sql);
     }
     
     public function createTable()
@@ -102,6 +100,7 @@ class pageModel
                 "PRIMARY KEY (`id`)".
                 ") ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;"
                 ;
+        
         $this->db->exec($sql);
     }
     
