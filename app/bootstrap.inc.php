@@ -34,13 +34,6 @@ setlocale(LC_ALL,'nl_NL.utf8');
 session_name('jhSkeleton');
 session_start();
 
-$siteName = 'jhSkeleton';
-$siteDescription = 'My app skeleton';
-$siteNavigationArr = array(
-    'home' => 'Home',
-    'about' => 'About',
-);
-
 // error and exception handler functions:
 function jhErrorHandler($error_nummer, $error_melding, $error_bestand, $error_regel, $error_vars)
 {
@@ -102,3 +95,4 @@ function jhExceptionHandler($e)
 }
 
 require $appPath.'functions.inc.php';
+require $appPath.'settings.inc.php';
