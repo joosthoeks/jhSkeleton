@@ -1,12 +1,13 @@
 <?php
-class pageModel
+class dbTableModel
 {
     private $db;
-    private $table = 'page';
+    private $table;
     
-    public function __construct($db)
+    public function __construct($db, $table)
     {
         $this->db = $db;
+        $this->table = $table;
     }
     
     public function getList($pageNo = 0, $rowCount = 10,
