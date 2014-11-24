@@ -36,7 +36,7 @@ function remoteFile2Dir($url, $dir)
     curl_setopt($ch, CURLOPT_TIMEOUT, 60); // 60 = 1 minute.
     curl_setopt($ch, CURLOPT_FILE, $fp);
     
-    $r = curl_exec($ch);
+    curl_exec($ch);
     $info = curl_getinfo($ch);
     
     curl_close($ch);
