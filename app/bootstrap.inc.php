@@ -41,8 +41,6 @@ $siteNavigationArr = array(
     'about' => 'About',
 );
 
-require $appPath.'functions.inc.php';
-
 // error and exception handler functions:
 function jhErrorHandler($error_nummer, $error_melding, $error_bestand, $error_regel, $error_vars)
 {
@@ -102,3 +100,5 @@ function jhExceptionHandler($e)
     echo '<div style="color:#foo;">Sorry, there was an error! The webmaster has been notified!</div>';
     exit();
 }
+
+require $appPath.'functions.inc.php';
