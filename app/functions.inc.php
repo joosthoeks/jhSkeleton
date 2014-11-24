@@ -1,4 +1,8 @@
 <?php
+function csv2Array($filename)
+{
+    return array_map('str_getcsv', file($filename));
+}
 function remoteFile2Str($url)
 {
     $ch = curl_init($url);
