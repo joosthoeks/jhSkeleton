@@ -104,4 +104,12 @@ class pageModel
                 ;
         $this->db->exec($sql);
     }
+    
+    private function output($sql)
+    {
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute();
+        $outputArr = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $outputArr;
+    }
 }
