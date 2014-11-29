@@ -38,13 +38,21 @@ class dbTableModel
         return $this->output($sql);
     }
     
-    public function getRow($id, $key = null)
+    public function getRow($whereKey, $whereValue, array $fields = array())
     {
-        $sql = "SELECT * FROM $this->table WHERE id = $id";
-        if (isset($key)) {
-            $keyEsc = $this->db->quote(trim(strip_tags($key)));
-            $sql = "SELECT * FROM $this->table WHERE key = $keyEsc";
+        $whereValueEsc = $this->db->quote($whereValue);
+        
+        $sql = "SELECT ";
+        if (empty($fields)) {
+            $sql .= "* ";
+        } else {
+            foreach ($fields as $field) {
+                $sql .= "$field, ";
+            }
+            $sql = substr($sql, 0, -2)." ";
         }
+        $sql .= "FROM $this->table ".
+                "WHERE $whereKey = $whereValueEsc";
         
         return $this->output($sql);
     }
