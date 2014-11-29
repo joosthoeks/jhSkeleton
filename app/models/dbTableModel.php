@@ -93,9 +93,11 @@ class dbTableModel
         $this->db->exec($sql);
     }
     
-    public function delete($id)
+    public function delete($whereKey, $whereValue)
     {
-        $sql = "DELETE FROM $this->table WHERE id = $id";
+        $whereValueEsc = $this->db->quote($whereValue);
+        
+        $sql = "DELETE FROM $this->table WHERE $whereKey = $whereValueEsc";
         
         $this->db->exec($sql);
     }
