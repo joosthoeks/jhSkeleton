@@ -10,18 +10,30 @@ class dbTableModel
         $this->table = $table;
     }
     
-    public function getList($pageNo = 0, $rowCount = 10,
+    public function getList(array $fields = array(),
+            $pageNo = '', $rowCount = '',
             $orderBy = '', $order = 'ASC',
             $q = '', $qIn = '')
     {
-        $sql = "SELECT * FROM $this->table ";
+        $sql = "SELECT ";
+        if (empty($fields)) {
+            $sql .= "* ";
+        } else {
+            foreach ($fields as $field) {
+                $sql .= "$field, ";
+            }
+            $sql = substr($sql, 0, -2)." ";
+        }
+        $sql .= "FROM $this->table ";
         if (strlen($q) > 0 && strlen($qIn) > 0) {
             $sql .= "WHERE $qIn LIKE '%$q%' ";
         }
         if (strlen($orderBy) > 0 && strlen($order) > 0) {
             $sql .= "ORDER BY $orderBy $order ";
         }
-        $sql .= "LIMIT $pageNo, $rowCount";
+        if (strlen($pageNo) > 0 && strlen($rowCount) > 0) {
+            $sql .= "LIMIT $pageNo, $rowCount";
+        }
         
         return $this->output($sql);
     }
