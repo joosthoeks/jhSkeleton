@@ -6,6 +6,6 @@ if (!isset($_POST['type'])
     exit();
 }
 
-$ajaxData = '';
+$ajaxOutput = '';
 
 require $appPath.'views/page/ajaxView.php';

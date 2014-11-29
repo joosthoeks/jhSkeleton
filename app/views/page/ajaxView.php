@@ -1,1 +1,1 @@
-<?php echo $ajaxData;
+<?php echo $ajaxOutput;
