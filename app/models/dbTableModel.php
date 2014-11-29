@@ -66,7 +66,7 @@ class dbTableModel
         $sql .= "lastUpdated, created".
                 ") VALUES (";
         foreach ($values as $value) {
-            $valueEsc = $this->db->quote(trim(strip_tags($value)));
+            $valueEsc = $this->db->quote($value);
             $sql .= $valueEsc.", ";
         }
         $sql .= "NOW(), NOW()".
