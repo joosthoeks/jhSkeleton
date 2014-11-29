@@ -77,15 +77,18 @@ class dbTableModel
         return $this->db->lastInsertId();
     }
     
-    public function edit($id, array $fields, array $values)
+    public function edit($whereKey, $whereValue,
+            array $fields, array $values)
     {
+        $whereValueEsc = $this->db->quote($whereValue);
+        
         $sql = "UPDATE $this->table SET ";
         foreach ($fields as $key => $field) {
-            $valueEsc = $this->db->quote(trim(strip_tags($values[$key])));
+            $valueEsc = $this->db->quote($values[$key]);
             $sql .= "$field = $valueEsc, ";
         }
         $sql .= "lastUpdated = NOW() ".
-                "WHERE id = $id";
+                "WHERE $whereKey = $whereValueEsc";
         
         $this->db->exec($sql);
     }
