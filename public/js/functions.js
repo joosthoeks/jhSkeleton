@@ -54,3 +54,53 @@ function scaleData(width)
 {
     return width / 1000;
 }
+function getClientCurrentPosition()
+{
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(clientGeoSuccess, clientGeoError, clientGeoOptions);
+    } else {
+        console.log('Geolocation service is not supported by browser.');
+    }
+}
+function getClientWatchPosition()
+{
+    if (navigator.geolocation) {
+        navigator.geolocation.watchPosition(clientGeoSuccess, clientGeoError, clientGeoOptions);
+    } else {
+        console.log('Geolocation service is not supported by browser.');
+    }
+}
+function clientGeoSuccess(position)
+{
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    var altitude = position.coords.altitude;
+    var accuracy = position.coords.accuracy;
+    var altitudeAccuracy = position.coords.altitudeAccuracy;
+    var heading = position.coords.heading;
+    var speed = position.coords.speed;
+    var timestamp = position.timestamp;
+    
+    // do something:
+    
+//    console.log(latitude);
+//    console.log(longitude);
+//    console.log(altitude);
+//    console.log(accuracy);
+//    console.log(altitudeAccuracy);
+//    console.log(heading);
+//    console.log(speed);
+//    console.log(timestamp);
+}
+function clientGeoError(error)
+{
+    console.log(error.code + ' : ' + error.message);
+}
+function clientGeoOptions()
+{
+    return {
+        enableHighAccuracy: true,
+        timeout: 10000, // 10 seconds.
+        maximumAge: Infinity
+    };
+}
