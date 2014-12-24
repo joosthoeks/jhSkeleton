@@ -8,4 +8,4 @@ if (!isset($_GET['type'])
 
 $dataOutput = '';
 
-require $appPath.'views/page/dataView.php';
+require $appPath.'views/page/'.$page.'View.php';
