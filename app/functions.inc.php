@@ -48,3 +48,23 @@ function remoteFile2Dir($url, $dir)
     }
     return FALSE;
 }
+function createFingerprint()
+{
+    $keys = array(
+        'HTTP_USER_AGENT',
+        'SERVER_PROTOCOL',
+        'HTTP_ACCEPT_CHARTSET',
+        'HTTP_ACCEPT_ENCODING',
+        'HTTP_ACCEPT_LANGUAGE',
+        );
+    
+    $tmp = '';
+    foreach ($keys as $key) {
+        if (isset($_SERVER[$key])) {
+            $tmp .= $_SERVER[$key];
+        }
+    }
+    
+    $result = sha1($tmp);
+    return $result;
+}
