@@ -17,6 +17,7 @@
 
 <link type="text/css" rel="stylesheet" href="./css/bootstrap.min.css" />
 <!--
+<link type="text/css" rel="stylesheet" href="./css/leaflet.css" />
 <link type="text/css" rel="stylesheet" href="./css/c3.min.css" />
 -->
 <?php // get page specific css:
@@ -71,6 +72,7 @@ foreach ($requireViewArr as $view) {
 <script type="text/javascript" src="./js/d3.v3.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="./js/queue.v1.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="./js/topojson.v1.min.js" charset="utf-8"></script>
+<script type="text/javascript" src="./js/leaflet.js"></script>
 <script type="text/javascript" src="./js/c3.min.js"></script>
 -->
 <script type="text/javascript" src="./js/functions.js"></script>
