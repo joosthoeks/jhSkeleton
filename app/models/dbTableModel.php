@@ -57,6 +57,11 @@ class dbTableModel
         return $this->output($sql);
     }
     
+    public function getQuery($sql)
+    {
+        return $this->output($sql);
+    }
+    
     public function add(array $fields, array $values)
     {
         $sql = "INSERT INTO $this->table (";
