@@ -8,4 +8,4 @@ if (!isset($_POST['type'])
 
 $ajaxOutput = '';
 
-require $appPath.'views/page/ajaxView.php';
+require $appPath.'views/page/'.$page.'View.php';
