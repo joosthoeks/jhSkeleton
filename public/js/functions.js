@@ -17,60 +17,60 @@ function jhAjax(url, container, type, key, value, callback)
         });
     }
 }
-function getWidthWindow()
+function jhGetWidthWindow()
 {
     return window.innerWidth;
 }
-function getHeightWindow()
+function jhGetHeightWindow()
 {
     return window.innerHeight;
 }
-function getWidthElement(id)
+function jhGetWidthElement(id)
 {
     return document.getElementById(id).clientWidth;
 }
-function getHeightElement(id)
+function jhGetHeightElement(id)
 {
     return document.getElementById(id).clientHeight;
 }
-function utf8ToB64(str)
+function jhUtf8ToB64(str)
 {
     return window.btoa(unescape(encodeURIComponent(str)));
 //    return window.btoa(encodeURIComponent(escape(str)));
 }
-function b64ToUtf8(str)
+function jhB64ToUtf8(str)
 {
     return decodeURIComponent(escape(window.atob(str)));
 //    return unescape(decodeURIComponent(window.atob(str)));
 }
-function submitDownloadForm(id, title, data)
+function jhSubmitDownloadForm(id, title, data)
 {
     var form = document.getElementById(id);
     form['title'].value = title;
     form['data'].value = data;
     form.submit();
 }
-function scaleData(width)
+function jhScaleData(width)
 {
     return width / 1000;
 }
-function getClientCurrentPosition()
+function jhGetClientCurrentPosition()
 {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(clientGeoSuccess, clientGeoError, clientGeoOptions);
+        navigator.geolocation.getCurrentPosition(jhClientGeoSuccess, jhClientGeoError, jhClientGeoOptions);
     } else {
         console.log('Geolocation service is not supported by browser.');
     }
 }
-function getClientWatchPosition()
+function jhGetClientWatchPosition()
 {
     if (navigator.geolocation) {
-        navigator.geolocation.watchPosition(clientGeoSuccess, clientGeoError, clientGeoOptions);
+        navigator.geolocation.watchPosition(jhClientGeoSuccess, jhClientGeoError, jhClientGeoOptions);
     } else {
         console.log('Geolocation service is not supported by browser.');
     }
 }
-function clientGeoSuccess(position)
+function jhClientGeoSuccess(position)
 {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
@@ -92,11 +92,11 @@ function clientGeoSuccess(position)
 //    console.log(speed);
 //    console.log(timestamp);
 }
-function clientGeoError(error)
+function jhClientGeoError(error)
 {
     console.log(error.code + ' : ' + error.message);
 }
-function clientGeoOptions()
+function jhClientGeoOptions()
 {
     return {
         enableHighAccuracy: true,
@@ -104,7 +104,7 @@ function clientGeoOptions()
         maximumAge: Infinity
     };
 }
-function pointInPolygon(point, vs)
+function jhPointInPolygon(point, vs)
 {
     // ray-casting algorithm based on
     // http://www.ecse.rpi.edu/Homepages/wrf/Research/Short_Notes/pnpoly.html
