@@ -1,9 +1,9 @@
 <?php
-function csv2Array($filename)
+function jhCsv2Array($filename)
 {
     return array_map('str_getcsv', file($filename));
 }
-function remoteFile2Str($url)
+function jhRemoteFile2Str($url)
 {
     $ch = curl_init($url);
     
@@ -23,7 +23,7 @@ function remoteFile2Str($url)
     }
     return FALSE;
 }
-function remoteFile2Dir($url, $dir)
+function jhRemoteFile2Dir($url, $dir)
 {
     $fp = fopen($dir.basename($url), "w");
     
@@ -48,7 +48,7 @@ function remoteFile2Dir($url, $dir)
     }
     return FALSE;
 }
-function createFingerprint()
+function jhCreateFingerprint()
 {
     $keys = array(
         'HTTP_USER_AGENT',
