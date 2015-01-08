@@ -10,6 +10,19 @@ function jhSetIncludePathRecursive($path)
         }
     }
 }
+function jhClassLoader($className)
+{
+    $extensions = array('.php', '.class.php', '.inc', '.inc.php');
+    $paths = explode(PATH_SEPARATOR, get_include_path());
+    foreach ($paths as $path) {
+        $filename = $path.$className;
+        foreach ($extensions as $ext) {
+            if (is_readable($filename.$ext)) {
+                require $filename.$ext;
+            }
+        }
+    }
+}
 function jhCsv2Array($filename)
 {
     return array_map('str_getcsv', file($filename));
