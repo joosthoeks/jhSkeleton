@@ -95,9 +95,10 @@ function jhExceptionHandler($e)
 }
 
 require $appPath.'functions.inc.php';
-require $appPath.'settings.inc.php';
 
 jhSetIncludePathRecursive($appPath);
 jhSetIncludePathRecursive($appPath.'../libs/');
 
 spl_autoload_register('jhClassLoader');
+
+$settings = new Settings();

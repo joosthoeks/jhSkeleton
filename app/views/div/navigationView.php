@@ -8,7 +8,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="./"><?php echo $siteName; ?></a>
+            <a class="navbar-brand" href="./"><?php echo $settings->siteName; ?></a>
         </div>
         <div class="navbar-collapse collapse">
             <!--
@@ -42,7 +42,7 @@
                 <li><a href="../navbar-static-top/">Static top</a></li>
                 <li><a href="../navbar-fixed-top/">Fixed top</a></li>
                 -->
-                <?php foreach ($siteNavigationArr as $navPageUrl => $navPageTitle) : ?>
+                <?php foreach ($settings->siteNavigationArr as $navPageUrl => $navPageTitle) : ?>
                 <?php $active = ($navPageUrl == $page) ? ' class="active"' : ''; ?>
                 <?php if ($navPageUrl == 'home') : ?>
                 <li<?php echo $active; ?>><a href="./"><?php echo $navPageTitle; ?></a></li>
