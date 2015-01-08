@@ -96,3 +96,5 @@ function jhExceptionHandler($e)
 
 require $appPath.'functions.inc.php';
 require $appPath.'settings.inc.php';
+
+jhSetIncludePathRecursive($appPath);
