@@ -1,4 +1,15 @@
 <?php
+function jhSetIncludePathRecursive($path)
+{
+    set_include_path(get_include_path().PATH_SEPARATOR.$path);
+    $scandir = scandir($path);
+    foreach ($scandir as $value) {
+        if ($value == '.' || $value == '..')            continue;
+        if (is_dir($path.$value)) {
+            jhSetIncludePathRecursive($path.$value.'/');
+        }
+    }
+}
 function jhCsv2Array($filename)
 {
     return array_map('str_getcsv', file($filename));
