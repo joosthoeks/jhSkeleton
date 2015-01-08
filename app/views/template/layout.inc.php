@@ -37,7 +37,7 @@ foreach ($requireCssArr as $css) : ?>
 
 <body>
 <?php
-require $appPath.'views/div/navigationView.php';
+require 'navigationView.php';
 ?>
     
     <div class="container">
@@ -52,7 +52,7 @@ require $appPath.'views/div/navigationView.php';
 <?php
 // get page views:
 foreach ($requireViewArr as $view) {
-    require $appPath.'views/'.$view.'View.php';
+    require $view.'View.php';
 }
 ?>
     

@@ -22,4 +22,4 @@ if (isset($_GET['page'])
     $page = basename($_GET['page']);
 }
 
-require $appPath.'controllers/'.$page.'Controller.php';
+require $page.'Controller.php';

@@ -20,4 +20,4 @@ $requireJsArr = array(
 );
 
 // get layout:
-require $appPath.'views/template/layout.inc.php';
+require 'layout.inc.php';
