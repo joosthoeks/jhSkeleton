@@ -98,3 +98,5 @@ require $appPath.'functions.inc.php';
 require $appPath.'settings.inc.php';
 
 jhSetIncludePathRecursive($appPath);
+
+spl_autoload_register('jhClassLoader');
