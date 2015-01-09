@@ -7,10 +7,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title><?php echo $settings->getSiteName(); ?> :: <?php echo $pageTitle; ?></title>
+<title><?php echo $settings->getSiteName(); ?> :: <?php echo $this->getPageTitle(); ?></title>
 
-<meta name="description" content="<?php echo $pageDescription; ?>" />
-<meta name="keywords" content="<?php echo $pageKeywords; ?>" />
+<meta name="description" content="<?php echo $this->getPageDescription(); ?>" />
+<meta name="keywords" content="<?php echo $this->getPageKeywords(); ?>" />
 <meta name="robots" content="index, follow" />
 <meta name="robots" content="all" />
 <meta name="revisit-after" content="7 days" />
@@ -21,7 +21,7 @@
 <link type="text/css" rel="stylesheet" href="./css/c3.min.css" />
 -->
 <?php // get page specific css:
-foreach ($requireCssArr as $css) : ?>
+foreach ($this->getCssArr() as $css) : ?>
 <link type="text/css" rel="stylesheet" href="./<?php echo $css; ?>.css" />
 <?php endforeach; ?>
 <link type="text/css" rel="stylesheet" href="./css/style.css" />
@@ -51,7 +51,7 @@ require 'navigationView.php';
     
 <?php
 // get page views:
-foreach ($requireViewArr as $view) {
+foreach ($this->getViewArr() as $view) {
     require $view.'View.php';
 }
 ?>
@@ -77,7 +77,7 @@ foreach ($requireViewArr as $view) {
 -->
 <script type="text/javascript" src="./js/functions.js"></script>
 <?php // get page specific js:
-foreach ($requireJsArr as $js) : ?>
+foreach ($this->getJsArr() as $js) : ?>
 <script type="text/javascript" src="./<?php echo $js; ?>.js"></script>
 <?php endforeach; ?>
 <script type="text/javascript" src="./js/script.js"></script>

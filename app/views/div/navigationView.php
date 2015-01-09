@@ -43,7 +43,7 @@
                 <li><a href="../navbar-fixed-top/">Fixed top</a></li>
                 -->
                 <?php foreach ($settings->getSiteNavigationArr() as $navPageUrl => $navPageTitle) : ?>
-                <?php $active = ($navPageUrl == $page) ? ' class="active"' : ''; ?>
+                <?php $active = ($navPageUrl == $this->getPage()) ? ' class="active"' : ''; ?>
                 <?php if ($navPageUrl == 'home') : ?>
                 <li<?php echo $active; ?>><a href="./"><?php echo $navPageTitle; ?></a></li>
                 <?php else : ?>

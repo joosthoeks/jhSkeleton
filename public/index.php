@@ -22,4 +22,6 @@ if (isset($_GET['page'])
     $page = basename($_GET['page']);
 }
 
-require $page.'Controller.php';
+$pageController = $page.'Controller';
+$controller = new $pageController($page);
+

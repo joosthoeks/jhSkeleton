@@ -100,5 +100,3 @@ jhSetIncludePathRecursive($appPath);
 jhSetIncludePathRecursive($appPath.'../libs/');
 
 spl_autoload_register('jhClassLoader');
-
-$settings = new Settings();
