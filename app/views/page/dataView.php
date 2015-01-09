@@ -1,1 +1,1 @@
-<?php echo $dataOutput;
+<?php echo $this->getDataOutput();
