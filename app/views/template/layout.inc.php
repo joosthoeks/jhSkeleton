@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<title><?php echo $settings->siteName; ?> :: <?php echo $pageTitle; ?></title>
+<title><?php echo $settings->getSiteName(); ?> :: <?php echo $pageTitle; ?></title>
 
 <meta name="description" content="<?php echo $pageDescription; ?>" />
 <meta name="keywords" content="<?php echo $pageKeywords; ?>" />
@@ -43,8 +43,8 @@ require 'navigationView.php';
     <div class="container">
         
         <div class="page-header">
-            <h1><a href="./"><?php echo $settings->siteName; ?></a></h1>
-            <p class="lead"><?php echo $settings->siteDescription; ?></p>
+            <h1><a href="./"><?php echo $settings->getSiteName(); ?></a></h1>
+            <p class="lead"><?php echo $settings->getSiteDescription(); ?></p>
         </div>
         
     </div>
