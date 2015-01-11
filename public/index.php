@@ -1,41 +1,6 @@
 <?php
 $pageStartTime = microtime(TRUE);
-
-switch ($_SERVER['SERVER_NAME']) {
-    case 'local':
-    case 'localhost':
-        // development:
-        error_reporting(-1);
-        ini_set('display_errors', '1');
-        $local = TRUE;
-        $publicPath = $_SERVER['DOCUMENT_ROOT'].'/jhSkeleton/jhSkeleton/public/';
-        $appPath = $publicPath.'../app/';
-        $db = new PDO('mysql:host=localhost;dbname=jhSkeleton', 'root', 'root');
-        $url = 'http://local/jhSkeleton/jhSkeleton/public/';
-        break;
-    
-    default :
-        // production:
-        error_reporting(0);
-        ini_set('display_errors', '0');
-        set_error_handler('jhErrorHandler');
-        set_exception_handler('jhExceptionHandler');
-        $local = FALSE;
-        $publicPath = $_SERVER['DOCUMENT_ROOT'].'/';
-        $appPath = $publicPath.'../app/';
-        $db = new PDO('mysql:host=localhost;dbname=example', 'user', 'pass');
-        $url = 'http://example.com/';
-        break;
-}
-
-date_default_timezone_set('UTC');
-ini_set('default_charset', 'UTF-8');
-setlocale(LC_ALL,'nl_NL.utf8');
-
-// start session:
-session_name('jhSkeleton');
-session_start();
-
+/*
 // error and exception handler functions:
 function jhErrorHandler($error_nummer, $error_melding, $error_bestand, $error_regel, $error_vars)
 {
@@ -95,18 +60,21 @@ function jhExceptionHandler($e)
     echo '<div style="color:#foo;">Sorry, there was an error! The webmaster has been notified!</div>';
     exit();
 }
+*/
+require '../app/Config.php';
+$config = new Config();
 
-require $appPath.'functions.inc.php';
+require $config->getAppPath().'functions.inc.php';
 
-jhSetIncludePathRecursive($appPath);
-jhSetIncludePathRecursive($appPath.'../libs/');
+jhSetIncludePathRecursive($config->getAppPath());
+jhSetIncludePathRecursive($config->getAppPath().'../libs/');
 
 spl_autoload_register('jhClassLoader');
 
 $page = 'home';
 if (isset($_GET['page'])
-        && file_exists($appPath.'controllers/'.basename($_GET['page']).'Controller.php')
-        && file_exists($appPath.'views/page/'.basename($_GET['page']).'View.php')
+        && file_exists($config->getAppPath().'controllers/'.basename($_GET['page']).'Controller.php')
+        && file_exists($config->getAppPath().'views/page/'.basename($_GET['page']).'View.php')
         ) {
     $page = basename($_GET['page']);
 }
