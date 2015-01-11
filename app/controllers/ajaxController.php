@@ -1,13 +1,8 @@
 <?php
-class ajaxController
+class ajaxController extends Controller
 {
     private $ajaxOutput = '';
     
-    public function __construct()
-    {
-        
-    }
-
     public function getAjaxOutput()
     {
         return $this->ajaxOutput;

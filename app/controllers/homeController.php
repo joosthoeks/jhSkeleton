@@ -1,7 +1,6 @@
 <?php
-class homeController
+class homeController extends Controller
 {
-    private $page;
     private $pageTitle = 'Home';
     private $pageDescription = 'Welcome page!';
     private $pageKeywords = 'home, welcome, page';
@@ -22,16 +21,6 @@ class homeController
     //    'js/example',
     );
     
-    public function __construct($page)
-    {
-        $this->page = $page;
-    }
-    
-    public function getPage()
-    {
-        return $this->page;
-    }
-
     public function getPageTitle()
     {
         return $this->pageTitle;

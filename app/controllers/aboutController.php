@@ -1,7 +1,6 @@
 <?php
-class aboutController
+class aboutController extends Controller
 {
-    private $page;
     private $pageTitle = 'About';
     private $pageDescription = '';
     private $pageKeywords = '';
@@ -22,16 +21,6 @@ class aboutController
     //    'js/example',
     );
     
-    public function __construct($page)
-    {
-        $this->page = $page;
-    }
-    
-    public function getPage()
-    {
-        return $this->page;
-    }
-
     public function getPageTitle()
     {
         return $this->pageTitle;

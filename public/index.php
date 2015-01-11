@@ -71,14 +71,4 @@ jhSetIncludePathRecursive($config->getAppPath().'../libs/');
 
 spl_autoload_register('jhClassLoader');
 
-$page = 'home';
-if (isset($_GET['page'])
-        && file_exists($config->getAppPath().'controllers/'.basename($_GET['page']).'Controller.php')
-        && file_exists($config->getAppPath().'views/page/'.basename($_GET['page']).'View.php')
-        ) {
-    $page = basename($_GET['page']);
-}
-
-$pageController = $page.'Controller';
-$controller = new $pageController($page);
-
+new Controller($config);

@@ -1,13 +1,8 @@
 <?php
-class dataController
+class dataController extends Controller
 {
-    private $dataOutput = 'bla';
+    private $dataOutput = '';
     
-    public function __construct()
-    {
-        
-    }
-
     public function getDataOutput()
     {
         return $this->dataOutput;
