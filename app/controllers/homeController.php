@@ -21,6 +21,11 @@ class homeController extends Controller
     //    'js/example',
     );
     
+    public function __construct($config)
+    {
+        parent::__construct($config);
+    }
+
     public function getPageTitle()
     {
         return $this->pageTitle;
