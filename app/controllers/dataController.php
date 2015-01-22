@@ -3,6 +3,11 @@ class dataController extends Controller
 {
     private $dataOutput = '';
     
+    public function __construct($config)
+    {
+        parent::__construct($config);
+    }
+
     public function getDataOutput()
     {
         return $this->dataOutput;
