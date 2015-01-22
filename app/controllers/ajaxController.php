@@ -3,6 +3,11 @@ class ajaxController extends Controller
 {
     private $ajaxOutput = '';
     
+    public function __construct($config)
+    {
+        parent::__construct($config);
+    }
+
     public function getAjaxOutput()
     {
         return $this->ajaxOutput;
