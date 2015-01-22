@@ -1,5 +1,5 @@
 <?php
-class dbTableModel
+class jhDbTableModel
 {
     private $db;
     private $table;
