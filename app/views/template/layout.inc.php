@@ -85,4 +85,4 @@ foreach ($this->getJsArr() as $js) : ?>
 </body>
 </html>
 
-<?php echo '<!-- This page was generated in '.(microtime(TRUE) - $pageStartTime).' seconds. -->';
+<?php echo '<!-- This page was generated in '.(microtime(TRUE) - $GLOBALS['pageStartTime']).' seconds. -->';

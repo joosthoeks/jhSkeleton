@@ -1,5 +1,5 @@
 <?php
-$pageStartTime = microtime(TRUE);
+$GLOBALS['pageStartTime'] = microtime(TRUE);
 /*
 // error and exception handler functions:
 function jhErrorHandler($error_nummer, $error_melding, $error_bestand, $error_regel, $error_vars)
