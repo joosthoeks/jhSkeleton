@@ -92,3 +92,21 @@ function jhCreateFingerprint()
     $result = sha1($tmp);
     return $result;
 }
+function jhDMS2DEC($deg, $min, $sec)
+{
+    // Converts DMS (Degrees/Minutes/Seconds) to decimal coord:
+    return $deg + ((($min * 60) + ($sec)) / 3600);
+}
+function jhDEC2DMS($decimalCoord)
+{
+    // Converts decimal coord to DMS (Degrees/Minutes/Seconds):
+    $decimalCoordArr = explode('.', $decimalCoord);
+    $degree = $decimalCoordArr[0];
+    $time = '0.'.$decimalCoordArr[1];
+    
+    $time = $time * 3600;
+    $min = floor($time / 60);
+    $sec = $time - ($min * 60);
+    
+    return array('deg' => $degree, 'min' => $min, 'sec' => $sec);
+}
