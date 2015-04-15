@@ -74,6 +74,7 @@ foreach ($this->getViewArr() as $view) {
 <script type="text/javascript" src="./js/topojson.v1.min.js" charset="utf-8"></script>
 <script type="text/javascript" src="./js/leaflet.js"></script>
 <script type="text/javascript" src="./js/c3.min.js"></script>
+<script type="text/javascript" src="./js/techan.min.js"></script>
 -->
 <script type="text/javascript" src="./js/functions.js"></script>
 <?php // get page specific js:
