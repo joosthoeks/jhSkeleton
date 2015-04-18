@@ -77,7 +77,14 @@ function jhRemoteFile2Dir($url, $dir, $timeout = 60, $userAgent = 'jhAgent')
     }
     return FALSE;
 }
-function jhRestClient($url, array $data = array(), $customRequest = 'GET', $timeout = 60, $userAgent = 'jhAgent', array $httpHeader = array('Content-Type: application/json'))
+function jhRestClient(
+        $url,
+        array $data = array(),
+        $customRequest = 'GET',
+        $timeout = 60,
+        $userAgent = 'jhAgent',
+        array $httpHeader = array('Content-Type: application/json')
+        )
 {
     $ch = curl_init($url);
     
@@ -104,7 +111,14 @@ function jhRestClient($url, array $data = array(), $customRequest = 'GET', $time
     }
     return FALSE;
 }
-function jhSoapClient($url, $xmlEnvelope, $customRequest = 'POST', $timeout = 60, $userAgent = 'jhAgent', array $httpHeader = array('Content-Type: text/xml'))
+function jhSoapClient(
+        $url,
+        $xmlEnvelope,
+        $customRequest = 'POST',
+        $timeout = 60,
+        $userAgent = 'jhAgent',
+        array $httpHeader = array('Content-Type: text/xml')
+        )
 {
     $ch = curl_init($url);
     
