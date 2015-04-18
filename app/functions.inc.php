@@ -32,37 +32,37 @@ function jhCsv2Array($filename)
 {
     return array_map('str_getcsv', file($filename));
 }
-function jhRemoteFile2Str($url)
+function jhRemoteFile2Str($url, $timeout = 60, $userAgent = 'jhAgent')
 {
     $ch = curl_init($url);
     
-    curl_setopt($ch, CURLOPT_USERAGENT, 'Bot');
-    curl_setopt($ch, CURLOPT_FAILONERROR, 1);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 600); // 600 = 10 minutes.
+    curl_setopt($ch, CURLOPT_USERAGENT, $userAgent);
+    curl_setopt($ch, CURLOPT_FAILONERROR, TRUE);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
     
-    $r = curl_exec($ch);
+    $res = curl_exec($ch);
     $info = curl_getinfo($ch);
     
     curl_close($ch);
     
     if ($info['http_code'] == 200) {
-        return $r;
+        return $res;
     }
     return FALSE;
 }
-function jhRemoteFile2Dir($url, $dir)
+function jhRemoteFile2Dir($url, $dir, $timeout = 60, $userAgent = 'jhAgent')
 {
     $fp = fopen($dir.basename($url), "w");
     
     $ch = curl_init($url);
     
-    curl_setopt($ch, CURLOPT_USERAGENT, 'Bot');
-    curl_setopt($ch, CURLOPT_FAILONERROR, 1);
-    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-    curl_setopt($ch, CURLOPT_TIMEOUT, 60); // 60 = 1 minute.
+    curl_setopt($ch, CURLOPT_USERAGENT, $userAgent);
+    curl_setopt($ch, CURLOPT_FAILONERROR, TRUE);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
     curl_setopt($ch, CURLOPT_FILE, $fp);
     
     curl_exec($ch);
@@ -77,9 +77,10 @@ function jhRemoteFile2Dir($url, $dir)
     }
     return FALSE;
 }
-function jhRestClient($url, array $data = array(), $customRequest = 'GET', $timeout = 60, $userAgent = 'jhAgent', $httpHeader = array('Content-Type: application/json'))
+function jhRestClient($url, array $data = array(), $customRequest = 'GET', $timeout = 60, $userAgent = 'jhAgent', array $httpHeader = array('Content-Type: application/json'))
 {
     $ch = curl_init($url);
+    
     curl_setopt($ch, CURLOPT_USERAGENT, $userAgent);
     if (!empty($httpHeader)) {
         curl_setopt($ch, CURLOPT_HTTPHEADER, $httpHeader);
@@ -92,9 +93,12 @@ function jhRestClient($url, array $data = array(), $customRequest = 'GET', $time
     }
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
+    
     $res = curl_exec($ch);
     $info = curl_getinfo($ch);
+    
     curl_close($ch);
+    
     if ($info['http_code'] == 200) {
         return $res;
     }
@@ -103,6 +107,7 @@ function jhRestClient($url, array $data = array(), $customRequest = 'GET', $time
 function jhSoapClient($url, $xmlEnvelope, $customRequest = 'POST', $timeout = 60, $userAgent = 'jhAgent', array $httpHeader = array('Content-Type: text/xml'))
 {
     $ch = curl_init($url);
+    
     curl_setopt($ch, CURLOPT_USERAGENT, $userAgent);
     if (!empty($httpHeader)) {
         curl_setopt($ch, CURLOPT_HTTPHEADER, $httpHeader);
@@ -115,9 +120,12 @@ function jhSoapClient($url, $xmlEnvelope, $customRequest = 'POST', $timeout = 60
     }
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
+    
     $res = curl_exec($ch);
     $info = curl_getinfo($ch);
+    
     curl_close($ch);
+    
     if ($info['http_code'] == 200) {
         return $res;
     }
