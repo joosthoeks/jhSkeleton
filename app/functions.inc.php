@@ -100,6 +100,29 @@ function jhRestClient($url, array $data = array(), $customRequest = 'GET', $time
     }
     return FALSE;
 }
+function jhSoapClient($url, $xmlEnvelope, $customRequest = 'POST', $timeout = 60, $userAgent = 'jhAgent', array $httpHeader = array('Content-Type: text/xml'))
+{
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_USERAGENT, $userAgent);
+    if (!empty($httpHeader)) {
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $httpHeader);
+    }
+    curl_setopt($ch, CURLOPT_FAILONERROR, TRUE);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $customRequest);
+    if (!empty($xmlEnvelope)) {
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $xmlEnvelope);
+    }
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
+    $res = curl_exec($ch);
+    $info = curl_getinfo($ch);
+    curl_close($ch);
+    if ($info['http_code'] == 200) {
+        return $res;
+    }
+    return FALSE;
+}
 function jhCreateFingerprint()
 {
     $keys = array(
